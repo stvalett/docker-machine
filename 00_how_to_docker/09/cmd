@@ -1,0 +1,14 @@
+apt-get update && apt-get install -y \
+git \
+clang
+
+glc https://github.com/stvalett/docker.git && cd docker
+
+touch test.c && echo "int main(void) {return 0;}" > test.c
+
+clang test.c
+
+git config --global user.email stvalett@student.42.fr
+git add test.c
+git commit -m "push from container debian"
+git push
